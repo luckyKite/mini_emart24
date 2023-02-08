@@ -1,0 +1,15 @@
+.topNav {
+  width: 20%;
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.topNav li { 
+  margin: 0 5%;
+}
+
+.link {
+  text-decoration: none;
+}

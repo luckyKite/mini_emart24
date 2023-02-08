@@ -1,0 +1,19 @@
+.topMenu {
+  width: 50%;
+  list-style: none;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+.topMenu li { 
+  margin: 0 5%;
+  margin-left: 150px;
+  padding-top: 50px;
+  font-size: 22px;
+}
+
+.link {
+  text-decoration: none;
+}
+
