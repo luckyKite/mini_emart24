@@ -143,6 +143,20 @@
           "productId": 2
         }
       ]
+    },
+    {
+      "id": 3,
+      "name": "이마트 30주년 이벤트",
+      "eventProductList": [
+        {
+          "id": 1,
+          "productId": 7
+        },
+        {
+          "id": 2,
+          "productId": 8
+        }
+      ]
     }
   ],
   "users": [
@@ -158,19 +172,25 @@
       "id": 1,
       "userId": 1,
       "productId": 1,
-      "qty": 2
+      "qty": 3
     },
     {
       "productId": 2,
       "userId": 1,
-      "qty": 4,
+      "qty": 2,
       "id": 2
     },
     {
-      "productId": 6,
+      "productId": 3,
       "userId": 1,
       "qty": 1,
       "id": 3
+    },
+    {
+      "productId": 1,
+      "userId": 1,
+      "qty": 1,
+      "id": 4
     }
   ]
 }
