@@ -142,37 +142,13 @@
       "id": 1,
       "userId": 1,
       "productId": 1,
-      "qty": 1
+      "qty": 4
     },
     {
-      "productId": 1,
+      "productId": 2,
       "userId": 1,
-      "qty": 1,
+      "qty": 2,
       "id": 2
-    },
-    {
-      "productId": 1,
-      "userId": 1,
-      "qty": 1,
-      "id": 3
-    },
-    {
-      "productId": 7,
-      "userId": 1,
-      "qty": 1,
-      "id": 4
-    },
-    {
-      "productId": 1,
-      "userId": 1,
-      "qty": 1,
-      "id": 5
-    },
-    {
-      "productId": 1,
-      "userId": 1,
-      "qty": 1,
-      "id": 6
     }
   ]
 }
