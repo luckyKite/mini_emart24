@@ -4,7 +4,7 @@ import Header from './components/layouts/Header';
 import Home from './components/pages/Home';
 import Cart from './components/pages/cart/Cart';
 import Product from './components/pages/product/Product';
-import Event from './components/pages/Event';
+import Event from './components/pages/event/Event';
 import Login from './components/pages/login/Login';
 import Join from './components/pages/join/Join';
 import ProductDetail from './components/pages/productDetail/ProductDetail';
