@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Login() {
+function Event() {
   return ( 
     <div className='container'>
-      login
+      이벤트
     </div>
    );
 }
 
-export default Login;
+export default Event;

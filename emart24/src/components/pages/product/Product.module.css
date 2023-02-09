@@ -1,0 +1,11 @@
+.comment {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.productList li {
+  list-style: none;
+  padding-bottom: 50px;
+}

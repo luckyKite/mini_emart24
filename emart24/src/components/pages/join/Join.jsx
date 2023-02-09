@@ -1,11 +1,11 @@
 import React from 'react';
 
-function Login() {
+function Join() {
   return ( 
     <div className='container'>
-      login
+      회원가입
     </div>
    );
 }
 
-export default Login;
+export default Join;

@@ -1,5 +1,5 @@
 .topMenu {
-  width: 50%;
+  width: 500px;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
@@ -8,12 +8,18 @@
 
 .topMenu li { 
   margin: 0 5%;
-  margin-left: 150px;
-  padding-top: 50px;
-  font-size: 22px;
+  padding-top: 70px;
+  font-size: 30px;
+  text-overflow: clip;
 }
 
-.link {
+.topMenu li a {
   text-decoration: none;
+  color: black;
 }
 
+@media (max-width: 500px) {
+  .topMenu li { 
+    font-size: 5px;
+  }
+}
