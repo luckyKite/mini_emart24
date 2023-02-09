@@ -19,20 +19,20 @@ function ProductDetail() {
 
 
   return (
-    <div>
+    <div className={style.detailWrap}>
       {
         product && (
-          <div className={style.detailWrap}>
-          <img src={product.thumbnail} alt={product.description} />
-          <p>평점 : {product.rating}</p>
-          <h2>{product.name}</h2>
-          <p>{product.description}</p>
-          <p>{product.category}</p>
-          <p>{product.brand}</p>
-          <p>가격 : {product.price}</p>
-          <p>할인금액 : {product.discount}</p>
-          
-
+          <div className={style.detailInfo}>
+            <h2 className={style.name}>{product.name}</h2>
+            <img src={product.thumbnail}/>
+            <div className={style.detailText}>
+              <p>상세설명 : {product.description}</p>         
+              <p>카테고리(분류) : {product.category}</p>
+              <p>제조사 : {product.brand}</p>
+              <p>정가 : {product.price}원</p>
+              <p>할인금액 : {product.discount}원</p>
+              <p>구매자 평점 : {product.rating}</p>  
+            </div> 
           </div>
         )
       }

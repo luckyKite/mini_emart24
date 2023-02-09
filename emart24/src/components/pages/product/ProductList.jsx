@@ -29,7 +29,7 @@ function ProductList({product}) {
   return (
     <div className={style.productListWrap}>
       <div className={style.rating}>
-        <p>별점 : {product.rating}</p>
+        <p>👍{product.rating}</p>
       </div>
       <div className={style.image}>
         <Link to= {`/productDetail/${product.id}`}>
@@ -42,7 +42,7 @@ function ProductList({product}) {
       </div>
       <div className={style.cartBtnWrap}>
         <button onClick={handleAddCart} className={style.cartBtn}>
-          카트에 담기
+          담기
         </button>
       </div>
     </div>

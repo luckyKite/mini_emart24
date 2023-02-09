@@ -1,6 +1,6 @@
 .productListWrap {
-  border: 1px solid black;
-  border-radius: 10%;
+  border: 1px solid gainsboro;
+  border-radius: 4% 4% 6% 6%;
   width: 30%;
   height: 500px;
   display: flex;
@@ -19,12 +19,14 @@
   text-align: right;
   display: flex;
   justify-content: right;
+  margin-right: 30px;
 }
 
 .rating p {
   font-size: 20px;
-  background-color: red;
-  color: white;
+  height: 30px;
+  background-color: f9bb00;
+  color: black;
 }
 
 .image {
@@ -37,7 +39,7 @@
 }
 
 .productInfo {
-  height: 100px;
+  height: 110px;
   display: flex;
   flex-direction: column;
 }
@@ -62,12 +64,12 @@
   width: fit-content;
   height: 40px;
   margin-top: 5px;
-  background-color: '#ffb71b';
+  border: greenyellow;
+  background-color: #f9bb00;
   font-size: 20px;
   font-weight: bold;
   color: white;
   cursor: pointer;
   padding: 5px 20px;
-  border-radius: 10% 20% 30% 40%;
-  /* 카트에담기가 오른쪽이동이 안됩니다... */
+  border-radius: 45%;
 }
