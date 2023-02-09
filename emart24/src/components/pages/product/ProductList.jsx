@@ -51,6 +51,7 @@ function ProductList({ product }) {
         })
           .then(res => {
             res.json();
+            alert(`${product.name}이/가 장바구니에 담겼습니다.`);
           })
           .catch(err => console.error(err));
       }
