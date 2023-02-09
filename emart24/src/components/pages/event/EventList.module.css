@@ -1,0 +1,65 @@
+.eventListWrap {
+  border: 1px solid gainsboro;
+  border-radius: 4% 4% 6% 6%;
+  width: 30%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  float: left;
+  margin: 1.5%;
+  margin-bottom: 40px;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.rating {
+  height: 50px;
+  width: 100%;
+  text-align: right;
+  display: flex;
+  justify-content: right;
+  margin-right: 30px;
+}
+
+.rating p {
+  font-size: 20px;
+  height: 30px;
+  background-color: f9bb00;
+  color: black;
+}
+
+
+.image img {
+  height: 250px;
+}
+
+.name {
+  height: 70px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.price {
+  height: 30px;
+  font-size: 35px;
+  text-align: center;
+  color: orangered
+}
+
+.cartBtnWrap {
+  height: 50px;
+}
+.cartBtn {
+  width: fit-content;
+  height: 40px;
+  margin-top: 5px;
+  border: greenyellow;
+  background-color: #f9bb00;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 45%;
+}
