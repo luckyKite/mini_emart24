@@ -1,13 +1,13 @@
 .topNav {
-  width: 200px;
+  padding-top: 8px;
   list-style: none;
-  display: flex;
+  display: flex;;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 .topNav li { 
-  margin: 0 5%;
+  margin: 0 2%;
 }
 
 .topNav li a { 

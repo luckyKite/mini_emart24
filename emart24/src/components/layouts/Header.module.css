@@ -1,7 +1,16 @@
 header {
   background-color: white;
   display: flex;
+  flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
+  width:  90%;
+  margin: 0 auto;
+  height: 130px;
 }
 
+.headerMain {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}

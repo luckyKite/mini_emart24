@@ -1,5 +1,5 @@
 .topMenu {
-  width: 500px;
+  width: 50%;
   list-style: none;
   display: flex;
   flex-wrap: nowrap;
@@ -7,26 +7,20 @@
 }
 
 .topMenu li { 
+  padding-top: 40px;
   margin: 0 5%;
-  padding-top: 70px;
-  font-size: 20px;
-  text-overflow: clip;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .topMenu li a {
   text-decoration: none;
   color: black;
-  width: 100%x;
 }
 
-.search {
-  box-sizing: border-box;
-  background-color: #f5f5f5;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 20px;
-  width: 400px;
-  height: 40px;
+.topMenu li a svg{
+  position: relative;
+  top: -35px;
 }
 
 @media (max-width: 500px) {
