@@ -4,6 +4,8 @@ import { useState } from 'react';
 import CartList from './CartList';
 import { useRecoilValue } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
+import style from "./Cart.module.css";
+
 
 function Cart() {
   const userId = 1;
@@ -20,6 +22,7 @@ function Cart() {
 
   return ( 
     <div className='container'>
+      <p className={style.cartShow}>내가 담은 상품 🎁</p>
       {
         cartData && cartData.map( cart => (
           <CartList
