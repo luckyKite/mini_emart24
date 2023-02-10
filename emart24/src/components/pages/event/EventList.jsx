@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from "./EventList.module.css";
 
 function EventList({product}) {
 
   const userId = 1;
+  const navigate = useNavigate();
   const [productData, setProductData] = useState();
 
   const getSameProduct = async () => {
@@ -21,7 +22,7 @@ function EventList({product}) {
     getSameProduct().then(result => {
       if (result) {
         // 중복 상품이 있는 경우
-        fetch(`http://localhost:3001/carts/${product}`, {
+        fetch(`http://localhost:3001/carts/${result.id}`, {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
@@ -34,6 +35,7 @@ function EventList({product}) {
             res.json();
             if (res.ok) {
               alert(`상품을 장바구니에 추가합니다.`);
+              navigate('/cart');
             } else {
               alert("서버 에러");
             }
