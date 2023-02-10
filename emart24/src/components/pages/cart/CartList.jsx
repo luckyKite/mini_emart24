@@ -10,9 +10,9 @@ const CartList = ({cart}) => {
       id: cart.id,
       userId: cart.userId,
       productId: cart.productId,
-      productImg: cart.thumbnail,
-      productName: cart.name,
-      productPrice: cart.price,
+      productImg: "",
+      productName: "",
+      productPrice: 0,
       qty: cart.qty,
     }
   );
@@ -20,7 +20,7 @@ const CartList = ({cart}) => {
   const url = `http://localhost:3001/products/${cart.productId}`;
 
   useEffect(() => {
-    fetch(`http://localhost:3001/products/${cartObj.id}`)
+    fetch(url)
     .then(res => res.json())
     .then(data => {
       setCartObj({
@@ -72,6 +72,20 @@ const CartList = ({cart}) => {
     handleQtyPatch(cartObj.qty - 1);
   }
 
+  const handleDelete = () => {
+    fetch(`http://localhost:3001/carts/${cartObj.id}`, {
+      method: "DELETE",
+    }).then(res => {
+      console.log(res)
+      if (res.ok) {
+        window.location.reload();
+      } else {
+        alert("삭제 실패")
+      }
+    })
+    .catch(err => console.log(err))
+  }
+
   return (
     <>
       <div className={style.cartList}>
@@ -81,7 +95,7 @@ const CartList = ({cart}) => {
           <p className={style.qty}>총 수량 : {cartObj.qty}개</p>
           <button className={style.pl} onClick={handleQtyIncre}>+</button>
           <p className={style.total}>총 금액 : {cartObj.productPrice * cartObj.qty}원</p>
-          <button className={style.del} >X</button>
+          <button className={style.del} onClick={handleDelete}>X</button>
         </div>
       </div>
     

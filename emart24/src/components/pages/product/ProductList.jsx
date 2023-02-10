@@ -22,6 +22,7 @@ function ProductList({ product }) {
   };
 
   const handleAddCart = () => {
+    console.log(product.id);
     getSameProduct().then(result => {
       if (result) {
         // 중복 상품이 있는 경우
@@ -31,8 +32,6 @@ function ProductList({ product }) {
           body: JSON.stringify({
             userId: userId,
             productId: product.id,
-            productThumbnail: product.thumbnail,
-            productPrice: product.price,
             qty: result.qty + 1
           }),
         })
@@ -55,8 +54,6 @@ function ProductList({ product }) {
           body: JSON.stringify({
             userId: userId,
             productId: product.id,
-            productThumbnail: product.thumbnail,
-            productPrice: product.price,
             qty: 1
           })
         })

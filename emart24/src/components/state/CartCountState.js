@@ -2,5 +2,5 @@ import { atom } from "recoil";
 
 export const CartCountState = atom({
   key: "CartCountState",
-  default: 0
+  default: 0,
 })
