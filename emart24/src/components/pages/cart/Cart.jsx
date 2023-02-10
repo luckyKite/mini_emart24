@@ -2,10 +2,13 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import CartList from './CartList';
+import { useRecoilValue } from 'recoil';
+import { CartCountState } from '../../state/CartCountState';
 
 function Cart() {
   const userId = 1;
   const [cartData, setCartData] = useState();
+  const cartCount = useRecoilValue(CartCountState);
 
   useEffect(() => {
     fetch(`http://localhost:3001/carts?userId=${userId}`)
@@ -13,7 +16,7 @@ function Cart() {
     .then(data => {
       setCartData(data)
     })
-  },[userId])
+  },[userId, cartCount])
 
   return ( 
     <div className='container'>

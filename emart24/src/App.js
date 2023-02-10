@@ -8,21 +8,24 @@ import Event from './components/pages/event/Event';
 import Login from './components/pages/login/Login';
 import Join from './components/pages/join/Join';
 import ProductDetail from './components/pages/productDetail/ProductDetail';
+import { RecoilRoot } from 'recoil';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/join" element={<Join />} />
-        <Route path="/product" element={<Product />} />
-        <Route path="/event" element={<Event />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/productDetail/:id" element={<ProductDetail />} />
-      </Routes>
-    </BrowserRouter>
+    <RecoilRoot>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/join" element={<Join />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="/event" element={<Event />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/productDetail/:id" element={<ProductDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </RecoilRoot>
   );
 }
 

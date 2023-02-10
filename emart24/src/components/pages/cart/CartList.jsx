@@ -1,8 +1,7 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import style from "./CartList.module.css";
-
+import { useRecoilState } from 'recoil';
+import { CartCountState } from '../../state/CartCountState';
 
 const CartList = ({cart}) => {
 
@@ -11,9 +10,9 @@ const CartList = ({cart}) => {
       id: cart.id,
       userId: cart.userId,
       productId: cart.productId,
-      productImg: "",
-      productName: "",
-      productPrice: 0,
+      productImg: cart.thumbnail,
+      productName: cart.name,
+      productPrice: cart.price,
       qty: cart.qty,
     }
   );
@@ -21,7 +20,7 @@ const CartList = ({cart}) => {
   const url = `http://localhost:3001/products/${cart.productId}`;
 
   useEffect(() => {
-    fetch(url)
+    fetch(`http://localhost:3001/products/${cartObj.id}`)
     .then(res => res.json())
     .then(data => {
       setCartObj({
@@ -33,65 +32,54 @@ const CartList = ({cart}) => {
     })
   },[url])
   
-  const handleIncreaseQty = () => {
-    fetch(`http://localhost:3001/carts/${cart.productId}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userId: 1,
-            productId: cart.productId,
-            qty: cart.qty + 1
-          }),
-        })
-          .then((res) => {
-            res.json();
-            if (res.ok) {
-              //alert(`장바구니 수량 증가.`);
-              setCartObj({
-                ...cartObj,
-                qty: cartObj.qty + 1
-              })
-            } else {
-              alert("서버 에러");
-            }
-          })
-          .catch((err) => console.error(err));
+ 
+  const handleQtyPatch = (qty) => {
+    fetch(`http://localhost:3001/carts/${cartObj.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type" : "application/json"
+      },
+      body: JSON.stringify({
+        ...cartObj,
+        qty: qty
+      })
+    }).then(res => res.json())
+    .then(data => console.log(data))
+    .catch(err => console.log(err))
   }
 
-  const handleDecreaseQty = () => {
-    fetch(`http://localhost:3001/carts/${cart.productId}`, {
-          method: "PATCH",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            userId: 1,
-            productId: cart.productId,
-            qty: cart.qty - 1
-          }),
-        })
-          .then((res) => {
-            res.json();
-            if (res.ok) {
-              //alert(`장바구니 수량 감소`);
-              setCartObj({
-                ...cartObj,
-                qty: cartObj.qty - 1
-              })
-            } else {
-              alert("서버 에러");
-            }
-          })
-          .catch((err) => console.error(err));
+  const handleQtyIncre = () => {
+    //state
+    setCartObj({
+        ...cartObj,
+        qty: cartObj.qty + 1
+    })
+
+    //database
+    handleQtyPatch(cartObj.qty + 1);
   }
 
-  const quantity = cartObj.qty;
+  const handleQtyDecre = () => {
+    //state
+    if(cartObj.qty === 1)
+    return alert("최소 수량은 1개입니다.");
+    setCartObj({
+      ...cartObj,
+      qty: cartObj.qty - 1
+    })
+
+    //database
+    handleQtyPatch(cartObj.qty - 1);
+  }
+
   return (
     <>
       <div className={style.cartList}>
         <img src={cartObj.productImg} alt={cartObj.productName} />
         <div className={style.button}>
-          <button className={style.mi} onClick={handleDecreaseQty}>-</button>
+          <button className={style.mi} onClick={handleQtyDecre}>-</button>
           <p className={style.qty}>총 수량 : {cartObj.qty}개</p>
-          <button className={style.pl} onClick={handleIncreaseQty}>+</button>
+          <button className={style.pl} onClick={handleQtyIncre}>+</button>
           <p className={style.total}>총 금액 : {cartObj.productPrice * cartObj.qty}원</p>
           <button className={style.del} >X</button>
         </div>

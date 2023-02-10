@@ -1,10 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from "./ProductList.module.css";
+import { useRecoilState } from 'recoil';
+import { CartCountState } from '../../state/CartCountState';
 
 function ProductList({ product }) {
 
   const userId = 1;
+  const navigate = useNavigate();
+
+  const [cartCount, setCartCount] = useRecoilState(CartCountState);
 
   const getSameProduct = async () => {
     let result = false;
@@ -24,15 +29,19 @@ function ProductList({ product }) {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: 1,
+            userId: userId,
             productId: product.id,
+            productThumbnail: product.thumbnail,
+            productPrice: product.price,
             qty: result.qty + 1
           }),
         })
           .then((res) => {
             res.json();
             if (res.ok) {
+              setCartCount(cartCount+1)
               alert(`${product.name}이/가 장바구니에 담겼습니다.`);
+              navigate('/cart');
             } else {
               alert("서버 에러");
             }
@@ -44,14 +53,18 @@ function ProductList({ product }) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            productId: product.id,
             userId: userId,
+            productId: product.id,
+            productThumbnail: product.thumbnail,
+            productPrice: product.price,
             qty: 1
           })
         })
           .then(res => {
             res.json();
+            setCartCount(cartCount+1)
             alert(`${product.name}이/가 장바구니에 담겼습니다.`);
+            navigate('/cart');
           })
           .catch(err => console.error(err));
       }

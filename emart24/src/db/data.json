@@ -172,25 +172,44 @@
       "id": 1,
       "userId": 1,
       "productId": 1,
-      "qty": 3
+      "qty": 19,
+      "productImg": "https://sitem.ssgcdn.com/59/56/18/item/1000530185659_i1_1100.jpg",
+      "productPrice": 5370,
+      "productName": "롯데 빈츠 2입 리미티드기획 408g"
     },
     {
+      "userId": 1,
       "productId": 2,
-      "userId": 1,
-      "qty": 2,
-      "id": 2
+      "productThumbnail": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
+      "productPrice": 9980,
+      "qty": 12,
+      "id": 2,
+      "productImg": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
+      "productName": "킷캣 오리지널 18입"
     },
     {
-      "productId": 3,
       "userId": 1,
+      "productId": 3,
+      "productThumbnail": "https://sitem.ssgcdn.com/90/11/54/item/1000270541190_i1_1100.jpg",
+      "productPrice": 9080,
       "qty": 1,
       "id": 3
     },
     {
-      "productId": 1,
       "userId": 1,
+      "productId": 8,
+      "productThumbnail": "https://sitem.ssgcdn.com/60/71/07/item/2097001077160_i1_1100.jpg",
+      "productPrice": 3200,
       "qty": 1,
       "id": 4
+    },
+    {
+      "userId": 1,
+      "productId": 5,
+      "productThumbnail": "https://sitem.ssgcdn.com/42/65/20/item/1000059206542_i1_1100.jpg",
+      "productPrice": 1360,
+      "qty": 1,
+      "id": 5
     }
   ]
 }
