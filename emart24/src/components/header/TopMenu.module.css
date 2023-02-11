@@ -23,6 +23,25 @@
   top: -35px;
 }
 
+.cartIcon::before p {
+  position: relative;
+  top: 0px;
+  z-index: 110;
+}
+
+.qtyBadge {
+  position: relative;
+  top: 0px;
+  background-color: black;
+  color: white;
+  margin-top: -130px;
+  margin-right: 0px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  font-size: 0.8rem;
+}
+
 @media (max-width: 500px) {
   .topMenu li { 
     font-size: 5px;
