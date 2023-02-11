@@ -31,7 +31,7 @@ function Event() {
   return (
     <div className='container'>
       <p className={style.comment}>이벤트가 진행되는 상품을 확인하세요 ☺️ </p>
-      <section>
+      <section className={style.types}>
         <select onChange={handleSelectEvent}>
           {
             eventList && eventList.map(item => (
