@@ -1,11 +1,10 @@
 import React, { Fragment } from 'react';
 import { useRecoilValue } from 'recoil';
 import { SearchState } from '../../state/SearchState';
-import style from './SearchList.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
-import ProductList from '../product/ProductList';
+import style from './SearchList.module.css';
 
 
 function SearchList({product}) {
@@ -76,7 +75,7 @@ function SearchList({product}) {
   console.log(searchResult);
   return (
     <div className='container'>
-      <p className={style.comment}>찾으시는 상품을 확인해보세요</p>
+      <p className={style.comment}>찾으시는 상품을 확인해보세요! 🔍 </p>
       {
         searchResult &&
         searchResult.map(item =>
