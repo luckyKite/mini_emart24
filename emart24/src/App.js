@@ -9,8 +9,11 @@ import Login from './components/pages/login/Login';
 import Join from './components/pages/join/Join';
 import ProductDetail from './components/pages/productDetail/ProductDetail';
 import { RecoilRoot } from 'recoil';
+import { useState } from 'react';
+import SearchList from './components/pages/search/SearchList';
 
-function App() {
+function App() {  
+
   return (
     <RecoilRoot>
       <BrowserRouter>
@@ -23,6 +26,7 @@ function App() {
           <Route path="/event" element={<Event />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/productDetail/:id" element={<ProductDetail />} />
+          <Route path="/search" element={<SearchList />} />
         </Routes>
       </BrowserRouter>
     </RecoilRoot>
