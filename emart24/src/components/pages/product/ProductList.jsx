@@ -4,7 +4,7 @@ import style from "./ProductList.module.css";
 import { useRecoilState } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
 
-function ProductList({ product }) {
+function ProductList({ product, showRating }) {
 
   const userId = 1;
   const navigate = useNavigate();
@@ -66,15 +66,15 @@ function ProductList({ product }) {
           .catch(err => console.error(err));
       }
     })
-
   }
-
 
   return (
     <div className={style.productListWrap}>
-      <div className={style.rating}>
-        <p>👍{product.rating}</p>
-      </div>
+      { showRating && 
+        <div className={style.rating}>
+          <p>👍{product.rating}</p>
+        </div>
+      }
       <div className={style.image}>
         <Link to={`/productDetail/${product.id}`}>
           <img src={product.thumbnail} alt={product.description} />
@@ -82,7 +82,7 @@ function ProductList({ product }) {
       </div>
       <div className={style.productInfo}>
         <p className={style.name}>{product.name}</p>
-        <p className={style.price}>{product.price}원</p>
+        <p className={style.price}>{product.price.toLocaleString('en-US')}원</p>
       </div>
       <div className={style.cartBtnWrap}>
         <button onClick={handleAddCart} className={style.cartBtn}>

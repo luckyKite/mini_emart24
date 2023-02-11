@@ -17,11 +17,11 @@ function Product() {
 
   return ( 
     <div className='container'>
-      <p className={style.comment}>emart24에서 상품을 골라 장바구니에 담아보세요~♬</p>
+      <p className={style.comment}>emart24에서 상품을 골라 장바구니에 담아보세요~🎶</p>
         <ul className={style.productList}>
           {
             product && product.map( product =>
-              <ProductList key={product.id} product={product} />
+              <ProductList key={product.id} product={product} showRating={true} />
             )
           }
         </ul>

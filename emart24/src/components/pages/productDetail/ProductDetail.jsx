@@ -31,7 +31,7 @@ function ProductDetail() {
               <p>제조사 : {product.brand}</p>
               <p>정가 : {product.price}원</p>
               <p>할인금액 : {product.discount}원</p>
-              <p>구매자 평점 : {product.rating}</p>  
+              <p>구매자 평점 : {product.rating}</p> 
             </div> 
           </div>
         )
