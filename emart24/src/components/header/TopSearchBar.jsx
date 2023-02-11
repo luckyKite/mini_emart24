@@ -29,11 +29,13 @@ function TopSearchBar() {
   return (
     <div className={style.topSearchBar}>
       <Link to={'/search'}>
-        <input type="text" className={style.search}
-          placeholder='검색할 상품을 입력하고 Enter를 누르세요.'
-          onChange={handleChange}
-          onKeyDown={(e)=> e.key === 'Enter' && handleSearch()}
-          defaultValue={searchWord} />
+        <div className={style.search}>
+          <input type="text" 
+            placeholder='검색할 상품을 입력하고 Enter를 누르세요.'
+            onChange={handleChange}
+            onKeyDown={(e)=> e.key === 'Enter' && handleSearch()}
+            defaultValue={searchWord} />
+        </div>
       </Link>
     </div>
    );
