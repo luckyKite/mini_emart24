@@ -4,9 +4,10 @@ header {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
-  width:  90%;
+  width:  90%; /* 100%로 하면 노란줄이 양쪽 끝까지 보임 */
   margin: 0 auto;
   height: 130px;
+  box-shadow: 0 2px #f9bb00;
 }
 
 .headerMain {
