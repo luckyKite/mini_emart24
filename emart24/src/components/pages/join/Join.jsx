@@ -87,7 +87,7 @@ function Join() {
   return (
     <div className='container'>
       <div className={style.joinFrom}>        
-      <p className={style.comment}>emart24에 가입하시고 혜택을 누리세요! </p>
+        <p className={style.comment}>emart24에 가입하시고 혜택을 누리세요! </p>
         <p><input type="text" placeholder='이름' onBlur={handlerName} /></p>
         <p><input type="text" placeholder='이메일' onBlur={handlerEmail} /></p>
         <p><input type="password" placeholder='비밀번호' onBlur={handlerPassword} /></p>
