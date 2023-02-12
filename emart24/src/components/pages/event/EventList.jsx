@@ -85,7 +85,7 @@ function EventList({product}) {
         </div>
         <div className={style.productInfo}>
           <p className={style.name}>{productData.name}</p>
-          <p className={style.price}>{productData.price}원</p>
+          <p className={style.price}>{productData.price.toLocaleString('en-US')}원</p>
         </div>
         <div className={style.cartBtnWrap}>
           <p onClick={handleAddCart} className={style.cartBtn}>
