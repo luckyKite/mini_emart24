@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
 import style from './SearchList.module.css';
+import ProductList from '../product/ProductList';
 
 
 function SearchList({product}) {
