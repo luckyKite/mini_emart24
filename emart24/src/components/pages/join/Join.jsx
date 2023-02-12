@@ -30,11 +30,14 @@ function Join() {
   }
 
   const passwordMatch = (password, passwordCheck) => {
+    let result = false;
     if(password !== passwordCheck) {
       console.log('비번입력틀림')
     } else {
       console.log('비번체크ok')
+      return true;
     }
+    return result;
   }
 
 
@@ -68,20 +71,22 @@ function Join() {
       if (passwordMatch(password, passwordChk)) {
         fetch('http://localhost:3001/users', {
           method: 'POST',
-          header: {"Content-Type" : "application/json"},
+          headers: {"Content-type" : "application/json"},
           body: JSON.stringify({
             name: name,
             email: email,
-            password: password,
-            passwordChk: passwordChk,
+            password: password
           })
         })
         .then(res => {
           res.json();
-          setIsPasswordSame()
+          //setIsPasswordSame()
         })
+        .then(data =>
+          console.log("입력된데이터", data))
         .catch(err => console.error(err));
       }
+      console.log(passwordMatch(password,passwordChk))
     }
   }
   return (
