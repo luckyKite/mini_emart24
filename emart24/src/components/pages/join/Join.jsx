@@ -17,13 +17,13 @@ function Join() {
 
   const passwordCheck = (password) => {
     let result = false;
-    const passwordForm = /^[A-Za-z0-9]{8,20}$/;
+    const passwordForm = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
     if(password.match(passwordForm) === null) {
-      //alert('비밀번호 양식을 확인하세요.');
-      console.log('비번양식 틀림')
+      //alert('비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.');
+      //console.log('비번양식 틀림')
     } else {
-       //alert('비밀번호 양식ok');
-       console.log('비번 양식 ok');
+      //alert('비밀번호를 아래에 한번 더 입력해주세요^^');
+      //console.log('비번 양식 ok');
        result = true;
     }
     return result;
@@ -32,9 +32,11 @@ function Join() {
   const passwordMatch = (password, passwordCheck) => {
     let result = false;
     if(password !== passwordCheck) {
-      console.log('비번입력틀림')
+      //alert('비밀번호가 일치하지 않습니다. 다시 확인해주세요!');
+      //console.log('비번입력틀림')
     } else {
-      console.log('비번체크ok')
+      //alert('비밀번호가 확인되었습니다. 회원가입을 눌러주세요^^');
+      //console.log('비번체크ok')
       return true;
     }
     return result;
@@ -95,8 +97,8 @@ function Join() {
         <p className={style.comment}>emart24에 가입하시고 혜택을 누리세요! </p>
         <p><input type="text" placeholder='이름' onBlur={handlerName} /></p>
         <p><input type="text" placeholder='이메일' onBlur={handlerEmail} /></p>
-        <p><input type="password" placeholder='비밀번호' onBlur={handlerPassword} /></p>
-        <p><input type="password" placeholder='비밀번호 확인' onBlur={handlerPasswordChk} /></p>
+        <p><input type="password" placeholder='비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.' onBlur={handlerPassword} /></p>
+        <p><input type="password" placeholder='비밀번호를 한번 더 입력 해 주세요.' onBlur={handlerPasswordChk} /></p>
         <button onClick={hanlderJoinBtn} className={style.joinBtn}>회원가입</button>
       </div>
     </div>
