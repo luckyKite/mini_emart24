@@ -63,7 +63,7 @@ export default function Login() {
               <input
                 className="input"
                 type="text"
-                placeholder="ex) test@gmail.com"
+                placeholder="ex) sample@gmail.com"
                 value={email}
                 onChange={handleEmail}/>
             </p>
@@ -78,7 +78,7 @@ export default function Login() {
               <input
                 className="input"
                 type="password"
-                placeholder="ex) 123*456a"
+                placeholder="ex) sample**0828"
                 value={pw}
                 onChange={handlePw}
               />
