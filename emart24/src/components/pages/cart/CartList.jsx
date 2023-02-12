@@ -94,7 +94,7 @@ const CartList = ({cart}) => {
           <button className={style.mi} onClick={handleQtyDecre}>-</button>
           <p className={style.qty}>총 수량 : {cartObj.qty}개</p>
           <button className={style.pl} onClick={handleQtyIncre}>+</button>
-          <p className={style.total}>총 금액 : {cartObj.productPrice * cartObj.qty}원</p>
+          <p className={style.total}>총 금액 : {(cartObj.productPrice * cartObj.qty).toLocaleString('en-US')}원</p>
           <button className={style.del} onClick={handleDelete}>X</button>
         </div>
       </div>

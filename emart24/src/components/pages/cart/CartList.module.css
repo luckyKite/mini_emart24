@@ -49,11 +49,10 @@
 
 .total {
   width: 200px;
-  margin-left: 100px;
-  justify-content: end;
+  margin-left: 150px;
+  font-size: 18px;
 }
 
 .del {
   width: 30px;
-  margin-left: 50px;
 }
