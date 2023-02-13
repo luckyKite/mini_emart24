@@ -65,47 +65,40 @@ export default function Login() {
 
     return (
       <div className='container'>
-        <div className={style.loginForm}>
+        <form className={style.loginForm} onSubmit={onClickConfirmButton} >
           <p className={style.loginComment}>로그인</p>
             <p className={style.email}>이메일 주소</p>
-            <p>
-              <input
+            <input
                 className="input"
                 type="text"
                 placeholder="ex) sample@gmail.com"
                 value={email}
                 onChange={handleEmail}/>
-            </p>
           <p className={style.err}>
             {!emailValid && email.length > 0 && (
               <p className={style.errMsg}>올바른 이메일을 입력해주세요.</p>
             )}
           </p>
-
           <p className={style.pass}>비밀번호</p>
-            <p>
-              <input
+          <input
                 className="input"
                 type="password"
                 placeholder="ex) sample**0828"
                 value={pw}
                 onChange={handlePw}
               />
-            </p>
           <p className={style.err}>
             {!pwValid && pw.length > 0 && (
               <p className={style.errMsg}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</p>
             )}
           </p>
-
-          <button 
-            onClick={onClickConfirmButton} 
+          <button type="submit"
             disabled={notAllow} 
             className={style.loginBtn}
           >
           확인
           </button>        
-        </div>
+        </form>
       </div>
     );
 }
