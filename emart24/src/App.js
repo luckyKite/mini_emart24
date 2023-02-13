@@ -11,7 +11,7 @@ import { RecoilRoot } from 'recoil';
 import { useState } from 'react';
 import SearchList from './components/pages/search/SearchList';
 import Home from './components/pages/home/Home';
-import Member from './components/pages/member/member';
+import Member from './components/pages/member/Member';
 
 function App() {  
 
