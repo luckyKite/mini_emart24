@@ -6,7 +6,6 @@ import HomeList from './HomeList';
 function Home() {
   return ( 
     <div className='container'>
-      홈입니다.
       <div className={style.bannerWrap}>
         <a href="https://www.emart24.co.kr/event/43" target="_blank"><img src="https://emart24.co.kr/image/NDg3Mg==" alt='이마트 카드할인' /></a>
         <a href="https://www.emart24.co.kr/event/41" target="_blank"><img src="https://emart24.co.kr/image/MzM5Nw==" alt='이마트 발렌타인' /></a>

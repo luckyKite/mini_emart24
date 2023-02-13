@@ -1,3 +1,7 @@
+.bannerWrap {
+  margin-top: 70px;
+}
+
 .bannerWrap > a img {
   width: 100%;
 }
