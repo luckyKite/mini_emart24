@@ -20,7 +20,7 @@ function TopNav() {
       logInData ?
         <>
           <li><Link to={'/member'}>회원정보</Link></li>
-          <li onClick={logOut}>로그아웃</li>
+          <li onClick={logOut} className={style.outTag}>로그아웃</li>
         </> 
         : 
         <>
