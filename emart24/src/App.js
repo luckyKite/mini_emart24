@@ -12,6 +12,7 @@ import { useState } from 'react';
 import SearchList from './components/pages/search/SearchList';
 import Home from './components/pages/home/Home';
 import Member from './components/pages/member/Member';
+import ChangePassword from './components/pages/member/ChangePassword';
 
 function App() {  
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/member" element={<Member />} />
           <Route path="/join" element={<Join />} />
+          <Route path="/changePassword" element={<ChangePassword />} />
           <Route path="/product" element={<Product />} />
           <Route path="/event" element={<Event />} />
           <Route path="/cart" element={<Cart />} />
