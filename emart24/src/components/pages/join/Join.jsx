@@ -12,14 +12,15 @@ function Join() {
   const [password, setPassword] = useState();
   const [passwordChk, setPasswordChk] = useState();
   const [isPasswordSame, setIsPasswordSame] = useState(false);
-  
+  const [isEmailchk, setIsEmailchk] = useState(false);
+
   useEffect(() => {
     if (password && passwordChk) {
       setIsPasswordSame(false);
-      Swal.fire('','비밀번호가 일치하지 않습니다. 다시 확인해주세요!');
+      Swal.fire('', '비밀번호가 일치하지 않습니다. 다시 확인해주세요!');
       if (password === passwordChk) {
         setIsPasswordSame(true);
-        Swal.fire('','비밀번호가 확인되었습니다. 회원가입을 한번 더 눌러주세요^^');
+        Swal.fire('', '비밀번호가 확인되었습니다. 회원가입을 한번 더 눌러주세요^^');
       }
     }
   }, [password, passwordChk]);
@@ -34,45 +35,46 @@ function Join() {
   const passwordCheck = (password) => {
     let result = false;
     const passwordForm = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-    if(password.match(passwordForm) === null) {
-      Swal.fire('','비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.')
+    if (password.match(passwordForm) === null) {
+      Swal.fire('', '비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.')
       //console.log('비번양식 틀림')
     } else {
       //console.log('비번 양식 ok');
       // Swal.fire('','비밀번호를 아래에 한번 더 입력해주세요^^'); //성공하고 한번 더 나옴
-       result = true;
-    }   
-    return result;  
+      result = true;
+    }
+    return result;
   }
 
   const handlerName = (e) => {
-    if(e.target.value) {
+    if (e.target.value) {
       setName(e.target.value);
     }
   }
 
   const handlerEmail = (e) => {
-    if(emailCheck(e.target.value)) {
+    if (emailCheck(e.target.value)) {
       setEmail(e.target.value);
+      setIsEmailchk(false);
     }
   }
 
   const handlerPassword = (e) => {
-    if(passwordCheck(e.target.value)) {
+    if (passwordCheck(e.target.value)) {
       setPassword(e.target.value);
     }
   }
 
   const handlerPasswordChk = (e) => {
-    if(passwordCheck(e.target.value)) {
+    if (passwordCheck(e.target.value)) {
       setPasswordChk(e.target.value);
     }
   }
 
   const hanlderJoinBtn = () => {
-    console.log(name, email, password, passwordChk);
+    console.log(name, email, password, passwordChk, isEmailchk);
     // 모든 값이 있고
-    if(name && email && isPasswordSame) {
+    if(name && email && isPasswordSame && isEmailchk) {
         fetch('http://localhost:3001/users', {
           method: 'POST',
           headers: {"Content-type" : "application/json"},
@@ -95,12 +97,33 @@ function Join() {
       //console.log(passwordMatch(password,passwordChk))
   }
 
+  /** 이메일 중복확인  -> 중복확인은 되는데 가입이 되네요...*/
+  const emailChk = () => {
+    fetch(`http://localhost:3001/users?email=${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length === 0) {
+          alert("사용가능 이메일입니다");
+          setIsEmailchk(true);
+        } else {
+          alert("중복된 이메일입니다");
+          setIsEmailchk(false);
+        }
+      });
+  };
+  
+  
+
+
+
+
   return (
     <div className='container'>
-      <div className={style.joinFrom}>        
+      <div className={style.joinFrom}>
         <p className={style.comment}>emart24에 가입하시고 혜택을 누리세요! </p>
         <p><input type="text" placeholder='이름' onBlur={handlerName} /></p>
         <p><input type="text" placeholder='이메일' onBlur={handlerEmail} /></p>
+        <button onClick={emailChk}>이메일 확인</button>
         <p><input type="password" placeholder='비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.' onBlur={handlerPassword} /></p>
         <p><input type="password" placeholder='비밀번호를 한번 더 입력 해 주세요.' onBlur={handlerPasswordChk} /></p>
         <button onClick={hanlderJoinBtn} className={style.joinBtn}>회원가입</button>
