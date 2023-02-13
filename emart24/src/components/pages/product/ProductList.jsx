@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import style from "./ProductList.module.css";
-import { useRecoilState } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
+import { logInState } from '../../state/logInState';
+import { useRecoilState, useecoilValue, useSetRecoilState } from 'recoil';
 
 function ProductList({ product, showRating }) {
-
-  const userId = 1;
+  const userId = 0; // 비회원
+  const [logInData, setLogInData] = useRecoilState(logInState);
   const navigate = useNavigate();
 
   const [cartCount, setCartCount] = useRecoilState(CartCountState);
 
   const getSameProduct = async () => {
     let result = false;
-    await fetch(`http://localhost:3001/carts?userId=1&productId=${product.id}`)
+    await fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}&productId=${product.id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length !== 0) result = { id: data[0].id, qty: data[0].qty }
@@ -30,7 +31,7 @@ function ProductList({ product, showRating }) {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: userId,
+            userId: logInData ? logInData.id : userId,
             productId: product.id,
             qty: result.qty + 1
           }),
@@ -38,7 +39,7 @@ function ProductList({ product, showRating }) {
           .then((res) => {
             res.json();
             if (res.ok) {
-              setCartCount(cartCount+1)
+              // setCartCount(cartCount+1)
               alert(`${product.name}이/가 장바구니에 담겼습니다.`);
               navigate('/cart');
             } else {
@@ -52,7 +53,7 @@ function ProductList({ product, showRating }) {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            userId: userId,
+            userId: logInData ? logInData.id : userId,
             productId: product.id,
             qty: 1
           })

@@ -1,16 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import style from "./EventList.module.css";
+import { logInState } from '../../state/logInState';
+import { CartCountState } from '../../state/CartCountState';
+import { useRecoilState, useecoilValue, useSetRecoilState } from 'recoil';
 
 function EventList({product}) {
 
-  const userId = 1;
+  const userId = 0; // 비회원
+  const [logInData, setLogInData] = useRecoilState(logInState);
   const navigate = useNavigate();
+  const [cartCount, setCartCount] = useRecoilState(CartCountState);
   const [productData, setProductData] = useState();
 
   const getSameProduct = async () => {
     let result = false;
-    await fetch(`http://localhost:3001/carts?userId=1&productId=${product}`)
+    await fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}&productId=${product}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length !== 0) result = { id: data[0].id, qty: data[0].qty }
@@ -26,7 +31,7 @@ function EventList({product}) {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: 1,
+            userId: logInData ? logInData.id : userId,
             productId: product,
             qty: result.qty + 1
           }),
@@ -34,6 +39,7 @@ function EventList({product}) {
           .then((res) => {
             res.json();
             if (res.ok) {
+              // setCartCount(cartCount+1)
               alert(`상품을 장바구니에 추가합니다.`);
               navigate('/cart');
             } else {
@@ -48,13 +54,15 @@ function EventList({product}) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             productId: product,
-            userId: userId,
+            userId: logInData ? logInData.id : userId,
             qty: 1
           })
         })
           .then(res => {
             res.json();
+            setCartCount(cartCount+1)
             alert(`이벤트 상품을 장바구니에 담았습니다!`);
+            navigate('/cart');
           })
           .catch(err => console.error(err));
         }

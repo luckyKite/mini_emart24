@@ -2,23 +2,26 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import CartList from './CartList';
-import { useRecoilValue } from 'recoil';
 import { CartCountState } from '../../state/CartCountState';
 import style from "./Cart.module.css";
+import { logInState } from '../../state/logInState';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 
 function Cart() {
-  const userId = 1;
+  const userId = 0; // 비회원
+  const [logInData, setLogInData] = useRecoilState(logInState);
+  
   const [cartData, setCartData] = useState();
   const cartCount = useRecoilValue(CartCountState);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/carts?userId=${userId}`)
+    fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}`)
     .then(res => res.json())
     .then(data => {
       setCartData(data)
     })
-  },[userId, cartCount])
+  },[logInData, cartCount])
 
   return ( 
     <div className='container'>
