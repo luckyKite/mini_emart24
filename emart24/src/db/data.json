@@ -111,6 +111,32 @@
       "rating": 5
     }
   ],
+  "homes": [
+    {
+      "id": 1,
+      "name": "아임이",
+      "image": "https://emart24.co.kr/image/Njg=",
+      "title": "사는 맛, 딱 한 방울"
+    },
+    {
+      "id": 2,
+      "name": "Fresh Food",
+      "image": "https://emart24.co.kr/image/NzI=",
+      "title": "차별화 된 이마트24 Fresh Food"
+    },
+    {
+      "id": 3,
+      "name": "김토끼 스튜됴",
+      "image": "https://emart24.co.kr/image/NzQ=",
+      "title": "2023년 토끼해를 맞이하여, 김토끼 콜라보"
+    },
+    {
+      "id": 4,
+      "name": "점신",
+      "image": "https://emart24.co.kr/image/MjMyMg==",
+      "title": "2023년 운세 제작소 점신 콜라보"
+    }
+  ],
   "events": [
     {
       "id": 1,
@@ -164,7 +190,37 @@
       "id": 1,
       "name": "안영진",
       "email": "beat1103@gmail.com",
-      "password": "1234"
+      "password": "1234*1234qq"
+    },
+    {
+      "name": "지송함",
+      "email": "sorry@gmail.com",
+      "password": "sorry**00",
+      "id": 7
+    },
+    {
+      "name": "김철수",
+      "email": "fewater@gmail.com",
+      "password": "fewaterkim**00",
+      "id": 8
+    },
+    {
+      "name": "김영희",
+      "email": "hee@gmail.com",
+      "password": "heeheehee**00",
+      "id": 9
+    },
+    {
+      "name": "김바둑",
+      "email": "dook@gmail.com",
+      "password": "dook**88",
+      "id": 10
+    },
+    {
+      "name": "테스트",
+      "email": "test@gmil.com",
+      "password": "test**77",
+      "id": 11
     }
   ],
   "carts": []
