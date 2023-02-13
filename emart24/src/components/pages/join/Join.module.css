@@ -30,6 +30,18 @@
   box-shadow: 0 1px 6px 0 #20212447;
 }
 
+.doubleChk {
+  cursor: pointer;
+  margin-top: 10px;
+  margin-left: 300px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  width: 26%;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
 .joinBtn {
   width: 100%;
   margin-top: 40px;

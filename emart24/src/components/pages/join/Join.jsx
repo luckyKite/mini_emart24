@@ -94,7 +94,7 @@ function Join() {
         <p className={style.comment}>emart24에 가입하시고 혜택을 누리세요! </p>
         <input type="text" placeholder='이름' name='name' onChange={handleInputData}/>
         <input type="text" placeholder='이메일' name='email' onChange={handleInputData}/>
-        <p onClick={emailChk}>이메일 확인</p>
+        <p onClick={emailChk} className={style.doubleChk}>이메일 중복확인</p>
         <input type="password" placeholder='비밀번호는 영문, 숫자, 특수문자 포함 8~20자 입니다.' name='password' onChange={handleInputData}/>
         <input type="password" placeholder='비밀번호를 한번 더 입력 해 주세요.' name='confirmPassword' onChange={handleInputData}/>
         <button type="submit" className={style.joinBtn}>회원가입</button>
