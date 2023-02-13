@@ -1,5 +1,7 @@
 import React, { Fragment, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import style from './HomeList.module.css';
+
 
 function HomeList() {
 
@@ -23,7 +25,9 @@ function HomeList() {
           {
             home && home.map( homeData => 
               <div key={homeData.id} className={style.homeWrap}>
-                <img src={homeData.image} alt='홈화면 이벤트 이미지' />
+                <Link to= {`/homes/${homeData.id.link}`}>                  
+                  <img src={homeData.image} alt='홈화면 이벤트 이미지' />
+                </Link> 
                 <p className={style.homeName}>{homeData.name}</p>
                 <p className={style.homeTitle}>{homeData.title}</p>
               </div>

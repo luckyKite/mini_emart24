@@ -1,27 +1,48 @@
 .homeMain {
+  font-size: 40px;
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 80px;
+}
+
+.homeDetail {
   font-size: 20px;
+  font-weight: bold;
+  margin: 10px;
+  margin-top: 20px;
+  color: #f9bb00;
+  
 }
 
 
-.homeWrap {
-
-}
-
-/* 이미지 사이즈가 안줄어들어요 */
 .homeWrap img {
   width: 200px;  
-  height: 250px;
+  height: 200px;
+
 }
 
 .homeName {
-
+  font-size: 25px;
 }
 
 .homeTitle {
-
+  font-size: 15px;
+  padding: 10%;
 }
 
 .homeListWrap {
   display: flex;
 
+}
+
+.homeWrap {
+  border: 3px solid gainsboro;
+  border-radius: 3%;
+  width: 100%;
+  height: 320px;
+  margin: 5px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  align-items: center;
 }
