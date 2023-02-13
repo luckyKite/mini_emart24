@@ -18,6 +18,11 @@
   color: black;
 }
 
+.topMenu li a:hover {
+  color: #f9bb00;
+  transition: 0.5s;
+}
+
 .topMenu li a svg{
   position: relative;
   top: -35px;
