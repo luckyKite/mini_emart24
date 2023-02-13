@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import style from './Login.module.css';
-
-
-const User = {
-  email: 'beat1103@gmail.com',
-  pw: '1234*1234qq'
-}
+import { useNavigate } from 'react-router-dom';
+import { logInState } from '../../state/logInState';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 
 export default function Login() {
+
+    const navigate = useNavigate();
+    const [logInData, setLogInData] = useRecoilState(logInState);
     const [email, setEmail] = useState('');
     const [pw, setPw] = useState('');
 
@@ -47,11 +47,20 @@ export default function Login() {
     };
 
     const onClickConfirmButton = () => {
-      if(email === User.email && pw === User.pw) {
-        alert('로그인에 성공했습니다.')
-      } else {
-        alert("등록되지 않은 회원입니다.");
-      }
+      fetch(`http://localhost:3001/users?email=${email}`)
+      .then(res => res.json())
+      .then(data => {
+        if(data.length!==0) {
+          if(data[0].password === pw) {
+            alert('로그인에 성공했습니다.')
+            setLogInData(data[0])
+            navigate('/');
+          }
+        } else {
+          alert('로그인 실패')
+        }
+      })
+      
     }
 
     return (
@@ -69,7 +78,7 @@ export default function Login() {
             </p>
           <p className={style.err}>
             {!emailValid && email.length > 0 && (
-              <p>올바른 이메일을 입력해주세요.</p>
+              <p className={style.errMsg}>올바른 이메일을 입력해주세요.</p>
             )}
           </p>
 
@@ -85,7 +94,7 @@ export default function Login() {
             </p>
           <p className={style.err}>
             {!pwValid && pw.length > 0 && (
-              <div>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</div>
+              <p className={style.errMsg}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</p>
             )}
           </p>
 

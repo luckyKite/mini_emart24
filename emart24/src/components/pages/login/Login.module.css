@@ -14,6 +14,10 @@
   margin-bottom: -15px;
 }
 
+.errMsg {
+  color: red;
+}
+
 .loginForm {
   border: 1px solid gainsboro;
   border-radius: 5%;
