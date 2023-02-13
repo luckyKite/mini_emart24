@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Header from './components/layouts/Header';
-import Home from './components/pages/Home';
 import Cart from './components/pages/cart/Cart';
 import Product from './components/pages/product/Product';
 import Event from './components/pages/event/Event';
@@ -11,6 +10,8 @@ import ProductDetail from './components/pages/productDetail/ProductDetail';
 import { RecoilRoot } from 'recoil';
 import { useState } from 'react';
 import SearchList from './components/pages/search/SearchList';
+import Home from './components/pages/home/Home';
+import Member from './components/pages/member/member';
 
 function App() {  
 
@@ -21,6 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/member" element={<Member />} />
           <Route path="/join" element={<Join />} />
           <Route path="/product" element={<Product />} />
           <Route path="/event" element={<Event />} />
