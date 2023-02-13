@@ -261,6 +261,18 @@
       "email": "you@gmail.com",
       "password": "qqqq1111**",
       "id": 17
+    },
+    {
+      "name": "안영진",
+      "email": "dadfadf@adaf.com",
+      "password": "abcd1234!!",
+      "id": 18
+    },
+    {
+      "name": "안영진",
+      "email": "aaaa@bbb.com",
+      "password": "abcd1234!!",
+      "id": 19
     }
   ],
   "carts": [
