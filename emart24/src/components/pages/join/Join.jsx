@@ -19,7 +19,7 @@ function Join() {
       Swal.fire('','비밀번호가 일치하지 않습니다. 다시 확인해주세요!');
       if (password === passwordChk) {
         setIsPasswordSame(true);
-        Swal.fire('','비밀번호가 확인되었습니다. 회원가입을 눌러주세요^^');
+        Swal.fire('','비밀번호가 확인되었습니다. 회원가입을 한번 더 눌러주세요^^');
       }
     }
   }, [password, passwordChk]);
