@@ -261,6 +261,12 @@
       "email": "qqq@gmail.com",
       "password": "qqq***00",
       "id": 17
+    },
+    {
+      "name": "jason",
+      "email": "jason@jason.com",
+      "password": "!!abcd1234",
+      "id": 18
     }
   ],
   "carts": [
@@ -284,6 +290,11 @@
       "productImg": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
       "productName": "킷캣 오리지널 18입",
       "productPrice": 9980
+    },
+    {
+      "productId": 1,
+      "qty": 1,
+      "id": 5
     }
   ]
 }

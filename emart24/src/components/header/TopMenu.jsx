@@ -5,21 +5,22 @@ import Lottie from "lottie-react";
 import cart from "../../image/cart.json";
 import { CartCountState } from '../state/CartCountState';
 import { logInState } from '../state/logInState';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 
 function TopMenu() {
-  const userId = 0; // 비회원
-  const [logInData, setLogInData] = useRecoilState(logInState);
+  
+  const logInData = useRecoilValue(logInState);
+  console.log(logInData)
   const [cartQty, setCartQty] = useRecoilState(CartCountState); 
 
   useEffect( () => {
-    fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}`)
+    fetch(`http://localhost:3001/carts?userId=${logInData.userId}`)
     .then(res => res.json())
     .then(data => {
       console.log(data);
       setCartQty(data.length)
     });
-  }, [logInData ? logInData.id : userId]);
+  }, [logInData.isLogIn]);
 
 
   return (
@@ -31,7 +32,9 @@ function TopMenu() {
           <Link to={'/cart'}>
             <Lottie animationData={cart} style={{width: "100px", display: "inline-block", }}></Lottie>
           </Link>
-          <p className={style.qtyBadge}>담긴 상품종류: {cartQty}</p>
+          {
+            logInData.isLogIn ? <p className={style.qtyBadge}>담긴 상품종류: {cartQty}</p> : ""
+          }
           </div>
       </li>
     </ul>

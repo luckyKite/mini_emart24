@@ -2,99 +2,71 @@ import React, { useEffect, useState } from 'react'
 import style from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import { logInState } from '../../state/logInState';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 
 
 export default function Login() {
 
     const navigate = useNavigate();
     const [logInData, setLogInData] = useRecoilState(logInState);
-    const [email, setEmail] = useState('');
-    const [pw, setPw] = useState('');
 
-    const [emailValid, setEmailValid] = useState(false);
-    const [pwValid, setPwValid] = useState(false);
-    const [notAllow, setNotAllow] = useState(true);
+    const [inputData, setInputData] = useState({
+      email: '',
+      password: ''
+    })
 
-    useEffect(() => {
-      if(emailValid && pwValid) {
-        setNotAllow(false);
-        return;
-      }
-      setNotAllow(true);
-    }, [emailValid, pwValid]);
-
-    const handleEmail = (e) => {
-      setEmail(e.target.value);
-      const regex =
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-      if (regex.test(e.target.value)) {
-        setEmailValid(true);
-      } else {
-        setEmailValid(false);
-      }
-    };
-
-    const handlePw = (e) => {
-      setPw(e.target.value);
-      const regex =
-        /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+])(?!.*[^a-zA-z0-9$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-      if (regex.test(e.target.value)) {
-        setPwValid(true);
-      } else {
-        setPwValid(false);
-      }
-    };
-
-    const onClickConfirmButton = () => {
-      fetch(`http://localhost:3001/users?email=${email}`)
+    const onClickConfirmButton = (e) => {
+      e.preventDefault();
+      fetch(`http://localhost:3001/users?email=${inputData.email}&&password=${inputData.password}`)
       .then(res => res.json())
       .then(data => {
         if(data.length!==0) {
-          if(data[0].password === pw) {
-            alert('로그인에 성공했습니다.')
-            setLogInData(data[0])
-            navigate('/'); //로그인 성공후 페이지 이동안됨
-          }
+          setLogInData({
+            ...logInData,
+            isLogIn: true,
+            email: data[0].email,
+            name: data[0].name,
+            userId: data[0].id
+          })
+          alert(`${data[0].name}님 환영합니다.`)
+          navigate('/');
         } else {
           alert('로그인 실패했습니다.')
         }
       })
-      
+    }
+
+    const handleInpuData = (e) => {
+      const {name, value} = e.target;
+      setInputData({
+        ...inputData,
+        [name]: value
+      })
     }
 
     return (
       <div className='container'>
-        <form className={style.loginForm}>
+        <form className={style.loginForm} onSubmit={onClickConfirmButton}>
           <p className={style.loginComment}>로그인</p>
             <p className={style.email}>이메일 주소</p>
             <input
                 className="input"
                 type="text"
                 placeholder="ex) sample@gmail.com"
-                value={email}
-                onChange={handleEmail}/>
-          <p className={style.err}>
-            {!emailValid && email.length > 0 && (
-              <p className={style.errMsg}>올바른 이메일을 입력해주세요.</p>
-            )}
-          </p>
+                name='email'
+                value={inputData.email}
+                onChange={handleInpuData}/>
           <p className={style.pass}>비밀번호</p>
           <input
                 className="input"
                 type="password"
-                placeholder="ex) sample**0828"
-                value={pw}
-                onChange={handlePw}
+                placeholder="비밀번호를 입력해주세요."
+                name='password'
+                value={inputData.password}
+                onChange={handleInpuData}
               />
-          <p className={style.err}>
-            {!pwValid && pw.length > 0 && (
-              <p className={style.errMsg}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</p>
-            )}
-          </p>
           <button 
-            onClick={onClickConfirmButton} 
-            disabled={notAllow} 
+            type="submit"
             className={style.loginBtn}
           >
           확인
