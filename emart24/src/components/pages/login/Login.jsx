@@ -26,7 +26,8 @@ export default function Login() {
             isLogIn: true,
             email: data[0].email,
             name: data[0].name,
-            userId: data[0].id
+            userId: data[0].id,
+            password: data[0].password,
           })
           alert(`${data[0].name}님 환영합니다.`)
           navigate('/');
