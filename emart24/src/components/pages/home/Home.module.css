@@ -1,11 +1,6 @@
-.bannerWrap {
-  margin-top: 70px;
-}
-
-.bannerWrap > a img {
+.bannerWrap img {
   width: 100%;
-}
-
-.mainImage {
-  margin-top: 30px;
+  height: 450px;
+  border-radius: 0 0 45px 45px;
+  margin-top: 3px;
 }

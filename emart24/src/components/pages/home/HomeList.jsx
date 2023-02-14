@@ -25,7 +25,7 @@ function HomeList() {
           {
             home && home.map( homeData => 
               <div key={homeData.id} className={style.homeWrap}>
-                <Link to= {`/homes/${homeData.id}`}>                  
+                <Link to= {homeData.link}>                  
                   <img src={homeData.image} alt='홈화면 이벤트 이미지' />
                 </Link> 
                 <p className={style.homeName}>{homeData.name}</p>
