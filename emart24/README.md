@@ -1,70 +1,66 @@
-# Getting Started with Create React App
+# Emart24
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 프론트엔드 과정을 배운 후 진행한 프로젝트입니다. 
+## 이 프로젝트는 React를 적용하여 웹으로 구현하였습니다.
+## emart24 홈페이지를 참고하였습니다.
 
-## Available Scripts
 
-In the project directory, you can run:
+## ● 웹 페이지에 적용된 기능
 
-### `npm start`
+  ### 1. 회원가입
+    - 이메일, 비밀번호 유효성 체크
+    - 이메일 중복여부 확인
+  ### 2. 로그인
+    - 로그인 후 개인 장바구니 활성화
+    - 회원정보에서 비밀번호 변경 가능
+  ### 3. 검색창을 이용한 상품검색
+    - 검색단어 없이 Enter입력하면 전체 상품 목록 보여짐
+    - 단어 검색시 관련 문구를 포함한 상품 목록 보여짐
+    - 검색으로 찾은 상품을 장바구니에 담기 가능
+  ### 4. 장바구니   
+    - 장바구니에서 상품 수량 증가, 감소 가능 (최소 수량: 1개)
+    - 상품 삭제 가능
+    - 장바구니 아이콘에서 장바구니에 담겨있는 상품 수량 표시
+  ### 5. 상품
+    - 메뉴 클릭으로 상품 리스트 이동
+    - 이미지 클릭으로 상세페이지 보기 가능
+    - 상품 리스트에서 장바구니 담기 가능
+  ### 6. 이벤트
+    - 메뉴 클릭으로 이벤트 리스트 이동 및 이벤트별 상품목록 보기 가능
+    - 이벤트 상품 장바구니 담기 후 장바구니 페이지 이동
+  ### 7. 홈
+    - 배너의 이미지 클릭으로 관련 페이지 이동
+  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## ● 개발환경
+   ### - vscode v1.75.0
+   ### - node v16.18.0
+   ### - react v18.2.0
+   
+   
+## ● 설치목록
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  ### app설치하면서 같이 설치
+    $ npm install @react-navigation/native
+    $ npm install react react-dom
+    $ npm install --save @react-navigation/native @react-navigation/stack @react-native-masked-view/masked-view
+    $ npm i styled-components
 
-### `npm test`
+  ### - slider 관련 (홈화면 이미지 넘어가는 기능)
+    $ npm install react-slick --save
+    $ npm install slick-carousel --save
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ### - index.html에 아래 link를 추가
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+  
+  ### - recoil 설치 
+    $ npm install recoil
 
-### `npm run build`
+  ### - axios 설치
+    $ npm install axios
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## ● 도움을 주신분 : 🎖️강사님🎖️, 🎖️FT님🎖️, 🌱잡초벤저스🌱
+  
+## ● 오류를 발견하시면 알려주세요. 감사합니다.
