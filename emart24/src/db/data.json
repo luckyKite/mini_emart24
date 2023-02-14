@@ -199,7 +199,7 @@
     {
       "name": "지송함",
       "email": "sorry@gmail.com",
-      "password": "sorry**00",
+      "password": "sorry00**",
       "id": 7
     },
     {
@@ -221,58 +221,46 @@
       "id": 10
     },
     {
-      "name": "테스트",
-      "email": "test@gmil.com",
-      "password": "test**77",
+      "name": "박명수",
+      "email": "park@gmail.com",
+      "password": "park00**",
       "id": 11
     },
     {
-      "name": "이순신",
-      "email": "2@gmail.com",
-      "password": "dltnstls1!",
+      "name": "유재석",
+      "email": "yoo@gmail.com",
+      "password": "you***00",
       "id": 12
     },
     {
-      "name": "유재석",
-      "email": "you@gmail.com",
-      "password": "youyou**00",
+      "name": "이영희",
+      "email": "park@gmail.com",
+      "password": "young**00",
       "id": 13
     },
     {
-      "name": "확인용",
-      "email": "test2@gmail.com",
-      "password": "test**0000",
+      "name": "테스트",
+      "email": "test@gmail.com",
+      "password": "test**00",
       "id": 14
     },
     {
-      "name": "허준호",
-      "email": "heo@gmail.com",
-      "password": "qqqq1111**",
+      "name": "확인용",
+      "email": "check@gmail.com",
+      "password": "check**00",
       "id": 15
     },
     {
-      "name": "이건희",
-      "email": "you@gmail.com",
-      "password": "qqqq1111**",
+      "name": "새로운",
+      "email": "new@gmail.com",
+      "password": "newnew00**",
       "id": 16
     },
     {
-      "name": "이건희",
-      "email": "you@gmail.com",
-      "password": "qqqq1111**",
+      "name": "확인",
+      "email": "qqq@gmail.com",
+      "password": "qqq***00",
       "id": 17
-    },
-    {
-      "name": "안영진",
-      "email": "dadfadf@adaf.com",
-      "password": "abcd1234!!",
-      "id": 18
-    },
-    {
-      "name": "안영진",
-      "email": "aaaa@bbb.com",
-      "password": "abcd1234!!",
-      "id": 19
     }
   ],
   "carts": [
@@ -283,89 +271,19 @@
       "id": 1
     },
     {
-      "userId": 1,
-      "productId": 1,
+      "userId": 11,
+      "productId": 2,
       "qty": 1,
-      "id": 2
-    },
-    {
-      "productId": 3,
-      "userId": 1,
-      "qty": 1,
-      "id": 4
+      "id": 3
     },
     {
       "productId": 2,
-      "qty": 1,
-      "id": 5
-    },
-    {
-      "productId": 3,
-      "qty": 1,
-      "id": 6
-    },
-    {
-      "productId": 1,
-      "qty": 1,
-      "id": 7
-    },
-    {
-      "productId": 2,
-      "qty": 1,
-      "id": 8
-    },
-    {
-      "userId": 12,
-      "productId": 2,
-      "qty": 4,
-      "id": 12,
+      "userId": 15,
+      "qty": 6,
+      "id": 4,
       "productImg": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
       "productName": "킷캣 오리지널 18입",
       "productPrice": 9980
-    },
-    {
-      "userId": 12,
-      "productId": 3,
-      "qty": 1,
-      "id": 13
-    },
-    {
-      "productId": 2,
-      "qty": 1,
-      "id": 15
-    },
-    {
-      "userId": 13,
-      "productId": 3,
-      "qty": 1,
-      "id": 17
-    },
-    {
-      "productId": 2,
-      "userId": 13,
-      "qty": 1,
-      "id": 18
-    },
-    {
-      "userId": 14,
-      "productId": 2,
-      "qty": 1,
-      "id": 19
-    },
-    {
-      "userId": 14,
-      "productId": 5,
-      "qty": 1,
-      "id": 20
-    },
-    {
-      "productId": 3,
-      "userId": 7,
-      "qty": 5,
-      "id": 22,
-      "productImg": "https://sitem.ssgcdn.com/90/11/54/item/1000270541190_i1_1100.jpg",
-      "productName": "허쉬 다크초콜릿 아사이&블루베리210g",
-      "productPrice": 9080
     }
   ]
 }

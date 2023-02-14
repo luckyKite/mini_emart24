@@ -65,13 +65,13 @@ function Join() {
     .then(res => {
       if(res.ok){
         alert('회원가입이 완료되었습니다.');
-        navigate('/');
+        navigate('/login'); //login으로 바꾸면 로그인 기능이 안됩니다... -> / '/'일때는 로그인도 정상      
       }
     })
     .catch(err => console.error(err));
   }
 
-  /** 이메일 중복확인  -> 중복확인은 되는데 가입이 되네요...*/
+  /** 이메일 중복확인  */
   const emailChk = () => {
     fetch(`http://localhost:3001/users?email=${inputData.email}`)
       .then((res) => res.json())

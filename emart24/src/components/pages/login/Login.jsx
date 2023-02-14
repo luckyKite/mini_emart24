@@ -54,7 +54,7 @@ export default function Login() {
           if(data[0].password === pw) {
             alert('로그인에 성공했습니다.')
             setLogInData(data[0])
-            navigate('/');
+            navigate('/'); //로그인 성공후 페이지 이동안됨
           }
         } else {
           alert('로그인 실패했습니다.')
@@ -65,7 +65,7 @@ export default function Login() {
 
     return (
       <div className='container'>
-        <form className={style.loginForm} onSubmit={onClickConfirmButton} >
+        <form className={style.loginForm}>
           <p className={style.loginComment}>로그인</p>
             <p className={style.email}>이메일 주소</p>
             <input
@@ -92,7 +92,8 @@ export default function Login() {
               <p className={style.errMsg}>영문, 숫자, 특수문자 포함 8자 이상 입력해주세요.</p>
             )}
           </p>
-          <button type="submit"
+          <button 
+            onClick={onClickConfirmButton} 
             disabled={notAllow} 
             className={style.loginBtn}
           >
