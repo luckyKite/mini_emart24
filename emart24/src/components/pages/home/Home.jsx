@@ -16,7 +16,7 @@ function Home() {
   };
   
   return ( 
-    <div className='container'>
+    <div className='container main-container'>
       <div className={style.bannerWrap}>
       <Slider {...settings}>
           <div>            
