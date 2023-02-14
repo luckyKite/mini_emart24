@@ -74,7 +74,7 @@ function EventList({product}) {
     fetch(`http://localhost:3001/products/${product}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data)
+      //console.log(data)
       setProductData(data);
     }).catch(err => console.error(err));
   },[product])

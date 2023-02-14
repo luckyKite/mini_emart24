@@ -10,7 +10,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 function TopMenu() {
   
   const logInData = useRecoilValue(logInState);
-  console.log(logInData)
+  //console.log(logInData)
   const [cartQty, setCartQty] = useRecoilState(CartCountState); 
 
   useEffect( () => {

@@ -12,7 +12,7 @@ function ProductDetail() {
     fetch(`http://localhost:3001/products/${id}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
       setProduct(data);
     })
     .catch(err => console.log(err))

@@ -15,14 +15,14 @@ function TopSearchBar() {
     fetch(`http://localhost:3001/products?q=${searchWord}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
+      //console.log(data);
       setSearchResult(data);
     });
   }
 
   // search word change handler
   const handleChange = (event) => {
-    console.log(event.target.value);
+    //console.log(event.target.value);
     setSearchWord(event.target.value);
   }
 

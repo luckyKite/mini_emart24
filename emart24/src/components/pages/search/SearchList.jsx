@@ -27,7 +27,7 @@ function SearchList({product}) {
   };
 
   const handleAddCart = () => {
-    console.log(product.id);
+    //console.log(product.id);
     getSameProduct().then(result => {
       if (result) {
         // 중복 상품이 있는 경우
