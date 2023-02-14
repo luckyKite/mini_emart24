@@ -16,7 +16,7 @@ const ChangePassword = () => {
   
   const changePassword = () => {
     if(loginData.password === nowPassword)  {
-      fetch(`http://localhost:3001/users/${loginData.id}`,{
+      fetch(`http://localhost:3001/users/${loginData.userId}`,{
         method: "PATCH",
         headers: {'Content-type': 'application/json'},
         body: JSON.stringify({

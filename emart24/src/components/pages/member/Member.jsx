@@ -3,14 +3,12 @@ import style from './Member.module.css';
 import { logInState } from '../../state/logInState';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import users from "../../../image/user.png";
-import ChangePassword from './ChangePassword';
+import changePassword from './ChangePassword';
 import { Link } from 'react-router-dom';
 
 function Member() {
 
   const [logInData, setLogInData] = useRecoilState(logInState);
-
-
 
   return (
     <div className='container'>   
@@ -21,11 +19,9 @@ function Member() {
         <p className={style.userEmail}>이메일(아이디) : {logInData && logInData.email}</p>
         <p className={style.userPass}>
           비밀번호 : {logInData && logInData.password}
-          <Link to= '/ChangePassword'>
+          <Link to= '/changePassword'>
           <button className={style.change}>변경</button></Link>
-        </p>
-        
-        
+        </p>    
       </div> 
     </div>
   );
