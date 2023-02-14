@@ -65,7 +65,7 @@ function Join() {
     .then(res => {
       if(res.ok){
         alert('회원가입이 완료되었습니다.');
-        navigate('/login'); //login으로 바꾸면 로그인 기능이 안됩니다... -> / '/'일때는 로그인도 정상      
+        navigate('/login');
       }
     })
     .catch(err => console.error(err));
