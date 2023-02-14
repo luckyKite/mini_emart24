@@ -5,6 +5,8 @@ import { CartCountState } from '../../state/CartCountState';
 
 const CartList = ({cart}) => {
 
+  const [cartQty, setCartQty] = useRecoilState(CartCountState);
+
   const[cartObj, setCartObj] = useState(
     {
       id: cart.id,
@@ -54,7 +56,7 @@ const CartList = ({cart}) => {
         ...cartObj,
         qty: cartObj.qty + 1
     })
-
+    setCartQty(cartQty + 1);
     //database
     handleQtyPatch(cartObj.qty + 1);
   }
@@ -67,7 +69,7 @@ const CartList = ({cart}) => {
       ...cartObj,
       qty: cartObj.qty - 1
     })
-
+    setCartQty(cartQty - 1);
     //database
     handleQtyPatch(cartObj.qty - 1);
   }

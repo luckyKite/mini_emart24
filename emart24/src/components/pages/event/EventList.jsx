@@ -15,7 +15,7 @@ function EventList({product}) {
 
   const getSameProduct = async () => {
     let result = false;
-    await fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}&productId=${product}`)
+    await fetch(`http://localhost:3001/carts?userId=${logInData.userId}&productId=${product}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.length !== 0) result = { id: data[0].id, qty: data[0].qty }
@@ -31,7 +31,7 @@ function EventList({product}) {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            userId: logInData ? logInData.id : userId,
+            userId: logInData.userId,
             productId: product,
             qty: result.qty + 1
           }),
@@ -39,7 +39,7 @@ function EventList({product}) {
           .then((res) => {
             res.json();
             if (res.ok) {
-              // setCartCount(cartCount+1)
+              setCartCount(cartCount+1)
               alert(`상품을 장바구니에 추가합니다.`);
               navigate('/cart');
             } else {
@@ -54,7 +54,7 @@ function EventList({product}) {
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             productId: product,
-            userId: logInData ? logInData.id : userId,
+            userId: logInData.userId,
             qty: 1
           })
         })

@@ -17,8 +17,11 @@ function TopMenu() {
     fetch(`http://localhost:3001/carts?userId=${logInData.userId}`)
     .then(res => res.json())
     .then(data => {
-      console.log(data);
-      setCartQty(data.length)
+      let allQty = 0;
+      data.map(item => {
+        allQty += item.qty;
+      })
+      setCartQty(allQty)
     });
   }, [logInData.isLogIn]);
 
@@ -33,7 +36,7 @@ function TopMenu() {
             <Lottie animationData={cart} style={{width: "100px", display: "inline-block", }}></Lottie>
           </Link>
           {
-            logInData.isLogIn ? <p className={style.qtyBadge}>담긴 상품종류: {cartQty}</p> : ""
+            logInData.isLogIn ? <p className={style.qtyBadge}>담긴 상품수량: {cartQty}</p> : ""
           }
           </div>
       </li>

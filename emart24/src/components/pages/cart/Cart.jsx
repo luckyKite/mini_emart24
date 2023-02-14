@@ -6,7 +6,7 @@ import { CartCountState } from '../../state/CartCountState';
 import style from "./Cart.module.css";
 import { logInState } from '../../state/logInState';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
-
+import withAuth from '../../withAuth/withAuth'
 
 function Cart() {
   const userId = 0; // 비회원
@@ -16,7 +16,7 @@ function Cart() {
   const cartCount = useRecoilValue(CartCountState);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/carts?userId=${logInData ? logInData.id : userId}`)
+    fetch(`http://localhost:3001/carts?userId=${logInData.userId}`)
     .then(res => res.json())
     .then(data => {
       setCartData(data)
@@ -37,4 +37,4 @@ function Cart() {
     </div>
    );
 }
-export default Cart;
+export default withAuth(Cart);
