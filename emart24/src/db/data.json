@@ -267,34 +267,44 @@
       "email": "jason@jason.com",
       "password": "!!abcd1234",
       "id": 18
+    },
+    {
+      "name": "이마트",
+      "email": "emart@gmail.com",
+      "password": "emart**24",
+      "id": 19
     }
   ],
   "carts": [
     {
-      "userId": 1,
-      "productId": 2,
-      "qty": 2,
-      "id": 1
-    },
-    {
-      "userId": 11,
-      "productId": 2,
+      "userId": 19,
+      "productId": 9,
       "qty": 1,
-      "id": 3
+      "id": 3,
+      "productImg": "https://sitem.ssgcdn.com/50/60/73/item/1000293736050_i1_1100.jpg",
+      "productName": "허쉬 후퍼스340g",
+      "productPrice": 6780
     },
     {
+      "userId": 19,
       "productId": 2,
-      "userId": 15,
-      "qty": 6,
+      "qty": 5,
       "id": 4,
       "productImg": "https://sitem.ssgcdn.com/21/16/61/item/1000529611621_i1_1100.jpg",
       "productName": "킷캣 오리지널 18입",
       "productPrice": 9980
     },
     {
-      "productId": 1,
+      "userId": 19,
+      "productId": 4,
       "qty": 1,
-      "id": 5
+      "id": 7
+    },
+    {
+      "productId": 7,
+      "userId": 19,
+      "qty": 2,
+      "id": 8
     }
   ]
 }
