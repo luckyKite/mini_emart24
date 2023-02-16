@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { navigate, useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { logInState } from '../../state/logInState';
 import style from './ChangePassword.module.css';
 
@@ -12,7 +12,7 @@ const ChangePassword = () => {
   const [nextPassword, setNextPassword] = useState();
   const [nextPassword2, setNextPassword2] = useState();
 
-  const loginData = useRecoilValue(logInState);
+  const [loginData, setLoginData] = useRecoilState(logInState);
   
   const changePassword = () => {
     if(loginData.password === nowPassword)  {
@@ -27,6 +27,7 @@ const ChangePassword = () => {
         res.json();
         if(res.ok) {
           alert('비밀번호 변경을 완료했습니다.');
+          setLoginData({...loginData, password: nextPassword});
           navigate('/member')
         } else {
           alert('비밀번호 변경이 실패했습니다.');
