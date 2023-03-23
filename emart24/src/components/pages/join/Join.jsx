@@ -41,9 +41,7 @@ function Join() {
     if( inputData.name === '' || inputData.email === '' || inputData.password === '' || inputData.confirmPassword === ''){
       return alert('빈칸을 모두 입력해주세요!');
     }
-    if(!emailCheck(inputData.email)){
-      return alert('이메일 형식이 올바르지 않습니다.');
-    }
+    
     if(!passwordCheck(inputData.password)){
       return alert('비밀번호 형식이 올바르지 않습니다.');
     }
@@ -73,6 +71,9 @@ function Join() {
 
   /** 이메일 중복확인  */
   const emailChk = () => {
+    if(!emailCheck(inputData.email)){
+      return alert('이메일 형식이 올바르지 않습니다.');
+    }
     fetch(`http://localhost:3001/users?email=${inputData.email}`)
       .then((res) => res.json())
       .then((data) => {
