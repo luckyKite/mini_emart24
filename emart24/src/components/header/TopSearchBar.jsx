@@ -11,7 +11,7 @@ function TopSearchBar() {
 
   const handleSearch = () => {
     //console.log('단어검색', searchWord);
-    //window.location.href = `/search/${searchWor}`
+    //window.location.href = `/search/${searchWord}`
     fetch(`http://localhost:3001/products?q=${searchWord}`)
     .then(res => res.json())
     .then(data => {
